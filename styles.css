@@ -1,0 +1,540 @@
+
+body button:hover{
+    cursor:pointer;
+
+}
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: auto;
+    overflow-x: hidden;
+
+}
+.bg_wallpaper{
+    display: block;
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    /*background: linear-gradient(135deg, #830343, #ff6b81);*/
+    background: linear-gradient(to bottom right, #000000,#ec167a);
+
+}
+
+.project-title p{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0;
+    margin: 0;
+    color: #ccc;
+    font-size: 20pt;
+}
+.project-title{
+width: 100%;
+height: min-content;
+display: flex;
+justify-content: center;
+padding: 0;
+margin: 0;
+font-weight: bold;
+}
+.projects {
+    
+    display: flex;
+    justify-content: center;
+    padding: 0;
+    flex-direction: row;
+    width: 100%;
+    margin: 0;
+    padding-bottom: 100px;
+}
+
+.project {
+    font-family: 'Courier New', Courier, monospace;
+    margin: 10px;
+    padding: 20px;
+    /*
+    border: 1px solid #faf6f6;
+    */
+    width: 300px;
+    cursor: pointer;
+    color: #eeeaea;
+    background-color: #4e052a;
+    box-shadow: 10px 10px 5px rgba(2, 2, 2, 0.575);
+
+}
+.main-content {
+    left: 0;
+    right: 0;
+    overflow-y: auto;
+    height: 100vh;
+    position: relative;
+    z-index: 10;
+}
+.about-me{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    position: relative;
+    color: #f8f3f3;
+}
+#about-me-title{
+    margin-top: 30px;
+    font-size: 48pt;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+    
+
+    
+}
+
+.about-me p{
+    font-family: 'Courier New', Courier, monospace;
+    padding: 0;
+    margin: 0;
+}
+@media screen and (max-width: 800px) {
+    .projects {
+        flex-direction: column;  /* Change to Column */
+        align-items: center;
+    }
+  
+}
+
+
+
+
+a {
+    color: #1877F2; /* Facebook blue */
+    text-decoration: none;
+    font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
+    
+}
+.fa-facebook {
+    color: #076cf1;  /* Facebook blue */
+    transition: 0.3s ease-in-out;
+
+}
+.fa-facebook:hover {
+    text-shadow: 0 0 20px #1877F2;
+}
+
+
+
+footer {
+    background: #000000;
+    width: 100%;
+    bottom: 0;
+    display: flex;
+    text-align: center;
+    position: fixed;
+    z-index: 1000;
+}
+.overlay {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    z-index: 2;
+}
+
+
+.overlay-right {
+    right: 0;
+    width: 20%;
+    background: #e60073;
+    transform: skew(-30deg);
+}
+.overlay-right1 {
+    right: 0;
+    width: 10%;
+    background: #e60073;
+
+}
+
+
+
+/*
+take note  .sidebar first before .sidebar_open
+*/
+.sidebar {
+    height: 100vh;
+    width: 380px;
+    left: -320px;
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    z-index: 1009;
+    transition: 0.3s ease-in-out;
+    align-items: center;
+}
+/*
+take note  below side bar
+*/
+.sidebar_open {
+    left: 0; /* Slide in */
+}
+
+.profile-pic {
+    width: 150px; /* Adjust size as needed */
+    height: 150px;
+    border-radius: 50%;
+    padding: 10px;
+}
+.header-text {
+    height: 100vh;
+    width: 380px;
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+    padding-left: 20px;
+    background-color: #0a0909f6;
+ 
+ 
+}
+#toggleBtn{
+    background: transparent;
+    margin-left: 5px;
+    font-size: 32pt;
+    border: transparent;
+}
+.togglebtn_container{
+    height: 100vh;
+}
+.prog_lang_layout{
+    position: relative;
+    width: 100%;
+    
+}
+.prog_lang_layout p{
+
+    word-wrap: break-word;
+
+
+}
+.header-text p{
+    font-family: 'Courier New', Courier, monospace;
+padding: 0;
+color: #f0148d;
+margin: 0;
+}
+
+#header_name_text{
+    font-size: 20pt;
+   font-weight: bold;
+}
+#header_prof_text{
+    font-size: 14pt;
+}
+
+#openForm {
+    color: #eeeaea;
+    font-family: 'Courier New', Courier, monospace;
+    font-style: italic;
+    font-size: 16pt;
+    margin-bottom: 1%;
+    padding: 5px;
+    border-radius: 40px;
+    border-bottom-left-radius: 0;
+    background-color: #830343;
+    border: 0px;
+    height: fit-content;
+    animation: glow-image 1s ease-in-out infinite alternate;
+    }
+
+
+
+#contact-title{
+    font-weight: bold;
+}
+.contact-layout{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+   margin-bottom: 10%;
+}
+.contact-layout p{
+    padding: 0;
+    margin: 0;
+}
+  @-webkit-keyframes glow {
+    from {
+      text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
+    }
+    
+    to {
+      text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
+    }
+  }
+  @keyframes glow-image {
+    0% {
+        box-shadow: 0 0 5px #f1eff0;
+    }
+    50% {
+        box-shadow: 0 0 10px #f5f4f4;
+    }
+    100% {
+        box-shadow: 0 0 5px #f7f4f5;
+    }
+}
+
+.scrolling-text-container {
+    display: flex;
+    justify-content: left;
+    width:100%;
+    overflow: hidden;
+    white-space: nowrap;
+    background: #000000;
+    position: relative;
+    left: -350px;
+    animation: scrollText 10s linear infinite;
+   
+}
+
+.scrolling-text {
+   
+    font-size: 3vh;
+    color: white;
+
+   
+}
+
+@keyframes scrollText {
+    from {
+        left: -350px;
+    }
+    to {
+       left: 100%;
+    }
+}
+
+/* Position Left and Right Overlays */
+
+
+
+.disp{
+    position: fixed; /* Stays above everything */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: #00000085;
+  /*  background: rgba(0, 0, 0, 0.164); /* Optional: semi-transparent background */
+    z-index: 10008; /* Ensures it is above everything */
+}
+
+.signin_form {
+    font-family: 'Courier New', Courier, monospace;
+    color: rgb(255, 255, 255);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    width: 300px;
+    border-radius: 50px;
+    border-top-right-radius: 0;
+    box-shadow: 10px 10px 5px rgba(17, 14, 13, 0.575);
+    padding: 5px 10px 30px 10px;
+    /* Gradient Background */
+    background: linear-gradient(135deg, #830343, #ff6b81);
+}
+.signin_form button {
+    font-family: 'Courier New', Courier, monospace;
+    color: #f1ecec;
+    background-color: #6d0036;
+    border-radius: 10px;
+    border: 0;
+}
+.close_btn_layout{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+
+}
+#closeSignin{
+    background: transparent;
+    border: 0;
+}
+.signin_form button,input{
+    font-size: large;
+    margin:5px;
+}
+.signin_form input{
+    width: 200px;
+}
+.signin_form p{
+    font-size: 16pt;
+}
+#closeSignup{
+    background: transparent;
+    border: 0;
+}
+.signup_form{
+    font-family: 'Courier New', Courier, monospace;
+
+    margin: 0;
+    color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+   background: linear-gradient(135deg, #830343, #ff6b81);
+    border-radius: 50px;
+    border-top-right-radius: 0;
+    padding: 5px 10px 30px 10px;
+    box-shadow: 10px 10px 5px rgba(2, 2, 2, 0.575);
+}
+.signup_form input{
+    font-family: 'Courier New', Courier, monospace;
+    color: #4e052a;
+    font-size: 16pt;
+    margin: 5px;
+    border-radius: 10px;
+    border: 0;
+}
+.signup_form button{
+    font-family: 'Courier New', Courier, monospace;
+    color: #f1ecec;
+    background-color: #6d0036;
+    font-size: 16pt;
+    margin: 5px;
+    border-radius: 10px;
+    border: 0;
+}
+
+
+#messagesContainer{
+    width: 95%; /* Set a width if needed */
+    height: 70%; /* Fixed height */
+    overflow-y: auto; /* Enable vertical scrolling */
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: #f9f9f9;
+}
+#messagesContainer button,p{
+font-size: 18pt;
+}
+#message_header{
+    color: #eeeaea;
+    padding: 0;
+    margin: 0;
+}
+.message_form {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 5px;
+    border: 1px solid #ccc;
+    width: 30%; /* Adjust width as needed */
+    margin: auto;
+    background: #aa9b9b;
+    height: 80%;
+    cursor: grab;
+    position: absolute;
+}
+
+#closechatbtn {
+    background-color: rgb(216, 83, 83);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16pt;
+    width: 200px;
+    border-radius: 50%;
+}
+
+#closechatbtn:hover {
+    background-color: rgb(179, 10, 10);
+}
+.signout_btn_container{
+display:flex;
+justify-content: flex-end;
+width: 100%;
+}
+
+#sendMsgBtn{
+    font-size: 16pt;
+}
+
+
+
+.type_msg_box{
+display: flex;
+flex-direction: row;
+width: 100%;
+}
+
+#inputmsg{
+    width: 100%;
+    font-size: 18pt;
+    }
+    
+#emailDropdown{
+
+    font-size: 18pt;
+}
+.movable-div1 {
+    width: auto;
+    height: 20%;
+    position: absolute;
+   top: 50px;
+    right:5px;
+    cursor: grab;
+    display: flex;
+    border-radius: 10px;
+    z-index: 10010;
+
+}
+
+.movable-div1 img {
+    width: auto; /* Makes the GIF fit inside */
+    height: 100%;
+    pointer-events: none;
+}
+.circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 11000;
+    font-size: 20pt;
+    color: #eeeaea;
+  }
+  
+  #circle1 {
+    background: #ff38a571;
+  }
+  
+  #circle2 {
+    background: #ff8a426b;
+  }
+  
+  #circle3 {
+    background: #fcd34da4;
+  }
+  #circle4 {
+    background: #1bcebf59;
+  }
+  
+  #circle5 {
+    background: #be1fb659;
+  }
+  
+  #circle6 {
+    background: #07e6194d;
+  }
+  
