@@ -211,13 +211,11 @@ take note  below side bar
     
 }
 .prog_lang_layout p{
-
     word-wrap: break-word;
-
-
+    font-size: 14pt;
 }
 .header-text p{
-    font-family: 'Courier New', Courier, monospace;
+font-family: 'Courier New', Courier, monospace;
 padding: 0;
 color: #f0148d;
 margin: 0;
@@ -248,9 +246,7 @@ margin: 0;
 
 
 
-#contact-title{
-    font-weight: bold;
-}
+
 .contact-layout{
     display: flex;
     justify-content: center;
@@ -259,8 +255,9 @@ margin: 0;
    margin-bottom: 10%;
 }
 .contact-layout p{
-    padding: 0;
+    padding: 5px;
     margin: 0;
+    font-size: 14pt;
 }
   @-webkit-keyframes glow {
     from {
@@ -364,7 +361,7 @@ margin: 0;
     border: 0;
 }
 .signin_form button,input{
-    font-size: large;
+    font-size: 14pt;
     margin:5px;
 }
 .signin_form input{
