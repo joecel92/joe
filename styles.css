@@ -92,10 +92,13 @@ font-weight: bold;
     padding: 0;
     margin: 0;
 }
-@media screen and (max-width: 800px) {
+@media screen and (max-width: 600px) {
     .projects {
         flex-direction: column;  /* Change to Column */
         align-items: center;
+    }
+    .movable-div1{
+       visibility: hidden;
     }
   
 }
@@ -200,9 +203,11 @@ take note  below side bar
     margin-left: 5px;
     font-size: 32pt;
     border: transparent;
+    position: relative;
 }
 .togglebtn_container{
     height: 100vh;
+    align-content: center;
 }
 .prog_lang_layout{
     position: relative;
@@ -486,7 +491,7 @@ width: 100%;
     width: auto;
     height: 20%;
     position: absolute;
-   top: 50px;
+   bottom: 50px;
     right:5px;
     cursor: grab;
     display: flex;
@@ -496,6 +501,7 @@ width: 100%;
 }
 
 .movable-div1 img {
+    position: relative;
     width: auto; /* Makes the GIF fit inside */
     height: 100%;
     pointer-events: none;
