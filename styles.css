@@ -38,30 +38,29 @@ margin: 0;
 font-weight: bold;
 }
 .projects {
-    
     display: flex;
-    justify-content: center;
+    justify-content:space-around;
     padding: 0;
     flex-direction: row;
     width: 100%;
     margin: 0;
-    padding-bottom: 100px;
+    overflow-x: hidden;
+    overflow-y: hidden;
 }
 
 .project {
     font-family: 'Courier New', Courier, monospace;
     margin: 10px;
-    padding: 20px;
-    /*
-    border: 1px solid #faf6f6;
-    */
+    padding: 10px;
     width: 300px;
+    height: 400px;
     cursor: pointer;
     color: #eeeaea;
     background-color: #4e052a;
     box-shadow: 10px 10px 5px rgba(2, 2, 2, 0.575);
 
 }
+
 .main-content {
     left: 0;
     right: 0;
@@ -348,7 +347,8 @@ margin: 0;
     color: #f1ecec;
     background-color: #6d0036;
     border-radius: 10px;
-    border: 0;
+    border: none;
+    border-bottom-right-radius: 0;
 }
 .close_btn_layout{
     width: 100%;
@@ -401,7 +401,7 @@ margin: 0;
     font-family: 'Courier New', Courier, monospace;
     color: #f1ecec;
     background-color: #6d0036;
-    font-size: 16pt;
+    font-size: 14pt;
     margin: 5px;
     border-radius: 10px;
     border: 0;
@@ -432,26 +432,27 @@ font-size: 18pt;
     border: 1px solid #ccc;
     width: 30%; /* Adjust width as needed */
     margin: auto;
-    background: #aa9b9b;
+    background: #75144d;
     height: 80%;
     cursor: grab;
     position: absolute;
 }
 
 #closechatbtn {
-    background-color: rgb(216, 83, 83);
-    color: white;
-    border: none;
+
+    color: rgb(12, 12, 12);
+
     padding: 8px 12px;
     cursor: pointer;
     border-radius: 5px;
     font-size: 16pt;
-    width: 200px;
-    border-radius: 50%;
+
+    border-radius: 50px;
 }
 
 #closechatbtn:hover {
-    background-color: rgb(179, 10, 10);
+    background-color: rgb(245, 8, 99);
+    color: #eeeaea;
 }
 .signout_btn_container{
 display:flex;
@@ -461,6 +462,7 @@ width: 100%;
 
 #sendMsgBtn{
     font-size: 16pt;
+    border-radius: 50px;
 }
 
 

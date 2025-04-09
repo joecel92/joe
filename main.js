@@ -13,7 +13,7 @@ import {
 } from "./firebase_auth.js";
 import { MESSAGES_KEY, INFO_KEY } from "./firebase_config.js";
 import { addItem, set_header_txt } from "./chat.js";
-
+const admin_uid="7Z8pzwRY4bOfWbtDt88PFOZ7hDD3";
 export let account_uid = "";
 export let selected_uid = "";
 let myfirstname = "";
@@ -107,8 +107,12 @@ function loadPage(page) {
     .then((data) => {
       document.getElementById("displ").innerHTML = data;
       if (page === "chat.html") {
-        DownLoadInfoData();
-        reload_messages();
+        if(account_uid===admin_uid){
+          DownLoadContacts();//load drop down items
+        }
+        
+        reload_messages(); // load messages
+        get_my_info(INFO_KEY, account_uid);//get user name and display it 
         document
           .getElementById("emailDropdown")
           .addEventListener("change", function () {
@@ -190,7 +194,7 @@ document.addEventListener("mouseup", () => {
   draggable1.style.cursor = "grab";
 });
 
-async function DownLoadInfoData() {
+async function DownLoadContacts() {
   const success = await GetInfoData(INFO_KEY);
   if (success != null) {
     const usersData = success;
@@ -293,7 +297,7 @@ function SignInAccount() {
           account_uid = USER_ID;
           loadPage("chat.html");
           // DownLoadInfoData();
-          get_my_info(INFO_KEY, account_uid);
+          //get_my_info(INFO_KEY, account_uid);
           selected_uid = account_uid;
           // get_name(INFO_KEY, account_uid);
           // alert(myname);
