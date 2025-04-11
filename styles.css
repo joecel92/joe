@@ -625,4 +625,7 @@ width: 100%;
     #about-me-title{
         font-size: 20pt;
     }
+    .message_form{
+        width: 90%;
+    }
 }
