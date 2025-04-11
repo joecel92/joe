@@ -37,28 +37,6 @@ padding: 0;
 margin: 0;
 font-weight: bold;
 }
-.projects {
-    display: flex;
-    justify-content:space-around;
-    flex-direction: row;
-    width: 100%;
-    margin-bottom: 50px;
-    overflow-x: hidden;
-    overflow-y: hidden;
-}
-
-.project {
-    font-family: 'Courier New', Courier, monospace;
-    margin: 10px;
-    padding: 10px;
-    width: 300px;
-    height: 400px;
-    cursor: pointer;
-    color: #eeeaea;
-    background-color: #4e052a;
-    box-shadow: 10px 10px 5px rgba(2, 2, 2, 0.575);
-
-}
 
 .main-content {
     left: 0;
@@ -76,6 +54,7 @@ font-weight: bold;
     position: relative;
     color: #f8f3f3;
 }
+
 #about-me-title{
     margin-top: 30px;
     font-size: 48pt;
@@ -91,16 +70,7 @@ font-weight: bold;
     padding: 0;
     margin: 0;
 }
-@media screen and (max-width: 600px) {
-    .projects {
-        flex-direction: column;  /* Change to Column */
-        align-items: center;
-    }
-    .movable-div1{
-       visibility: hidden;
-    }
-  
-}
+
 
 
 
@@ -206,7 +176,7 @@ take note  below side bar
 }
 .togglebtn_container{
     height: 100vh;
-    align-content: center;
+
 }
 .prog_lang_layout{
     position: relative;
@@ -224,11 +194,11 @@ color: #f0148d;
 margin: 0;
 }
 
-#header_name_text{
+.header_name_text{
     font-size: 20pt;
    font-weight: bold;
 }
-#header_prof_text{
+.header_prof_text{
     font-size: 14pt;
 }
 
@@ -265,6 +235,7 @@ margin: 0;
     margin: 0;
     font-size: 14pt;
 }
+/*
   @-webkit-keyframes glow {
     from {
       text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #e60073, 0 0 40px #e60073, 0 0 50px #e60073, 0 0 60px #e60073, 0 0 70px #e60073;
@@ -274,6 +245,7 @@ margin: 0;
       text-shadow: 0 0 20px #fff, 0 0 30px #ff4da6, 0 0 40px #ff4da6, 0 0 50px #ff4da6, 0 0 60px #ff4da6, 0 0 70px #ff4da6, 0 0 80px #ff4da6;
     }
   }
+    */
   @keyframes glow-image {
     0% {
         box-shadow: 0 0 5px #f1eff0;
@@ -545,3 +517,112 @@ width: 100%;
     background: #07e6194d;
   }
   
+  .project_page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 100px;
+    height: 500px;
+}
+
+
+  #book {
+    
+    position: relative;
+    width: 50%;
+    height: 800px;
+    perspective: 2000px;
+
+  }
+  
+  /* Each page */
+  .page {
+    width: 100%;
+    height: 100%;
+    background: rgb(211, 180, 180);
+    position: absolute;
+    padding: 5px;
+    transform-origin: left;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.329); /* Drop shadow */
+    backface-visibility: hidden;
+    box-sizing: border-box;
+  }
+  .page p{
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  /* Add inner shadow effect while flipping */
+  .page::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.082);
+    opacity: 0;
+    transition: opacity 1.5s ease;
+    z-index: 2;
+  }
+  
+  .page.flipped::before {
+    opacity: 1;
+  }
+  
+  /* Layering pages correctly */
+  .page:nth-child(1) { z-index: 5; }
+  .page:nth-child(2) { z-index: 4; }
+  .page:nth-child(3) { z-index: 3; }
+  .page:nth-child(4) { z-index: 2; }
+  .page:nth-child(5) { z-index: 1; }
+  
+  /* Page flipping */
+  .page.flipped {
+    transform: rotateY(-180deg);
+  }
+  
+  /* Navigation buttons */
+  .nav-buttons {
+    display: flex;
+    width: 50%;
+    position: relative;
+    justify-content: space-around;
+    padding: 0;
+    text-align: center;
+
+  }
+  
+  .nav-buttons button {
+    background: none;
+    font-size: 40px;
+    border: none;
+    color: rgb(250, 246, 248);
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .nav-buttons button:hover {
+    color: #f70088;
+  }
+  @media screen and (max-width: 600px) {
+    .projects {
+        flex-direction: column;  /* Change to Column */
+        align-items: center;
+    }
+    .movable-div1{
+       visibility: hidden;
+    }
+    #book{
+        width: 86%;
+    }
+    .nav-buttons{
+        width: 90%;
+    }
+    #about-me-title{
+        font-size: 20pt;
+    }
+}

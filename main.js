@@ -13,10 +13,17 @@ import {
 } from "./firebase_auth.js";
 import { MESSAGES_KEY, INFO_KEY } from "./firebase_config.js";
 import { addItem, set_header_txt } from "./chat.js";
+import { goToNext,goToPrevious } from "./pageflip.js";
+
+
 const admin_uid="7Z8pzwRY4bOfWbtDt88PFOZ7hDD3";
 export let account_uid = "";
 export let selected_uid = "";
 let myfirstname = "";
+
+let currentPage = 0;
+
+
 export function reload_messages() {
   //reload_my_msgbox(MESSAGES_KEY, account_uid);
   //get_messages(MESSAGES_KEY, account_uid);
@@ -336,8 +343,8 @@ let pos6 = { x: mouse.x, y: mouse.y };
 
 // Listen to mouse movement
 document.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX + 10;
-  mouse.y = e.clientY + 10;
+  mouse.x = e.clientX + 50;//move circles 10px to x
+  mouse.y = e.clientY + 50;//move cicles 10px to y
 });
 
 function lerp(start, end, factor) {
@@ -346,18 +353,18 @@ function lerp(start, end, factor) {
 
 function animate() {
   // Smoothly interpolate positions
-  pos1.x = lerp(pos1.x, mouse.x, 0.1);
-  pos1.y = lerp(pos1.y, mouse.y, 0.1);
-  pos2.x = lerp(pos2.x, pos1.x, 0.1);
-  pos2.y = lerp(pos2.y, pos1.y, 0.1);
-  pos3.x = lerp(pos3.x, pos2.x, 0.1);
-  pos3.y = lerp(pos3.y, pos2.y, 0.1);
-  pos4.x = lerp(pos4.x, pos3.x, 0.1);
-  pos4.y = lerp(pos4.y, pos3.y, 0.1);
-  pos5.x = lerp(pos5.x, pos4.x, 0.1);
-  pos5.y = lerp(pos5.y, pos4.y, 0.1);
-  pos6.x = lerp(pos6.x, pos5.x, 0.1);
-  pos6.y = lerp(pos6.y, pos5.y, 0.1);
+  pos1.x = lerp(pos1.x, mouse.x, .05);
+  pos1.y = lerp(pos1.y, mouse.y, .05);
+  pos2.x = lerp(pos2.x, pos1.x, .05);
+  pos2.y = lerp(pos2.y, pos1.y, .05);
+  pos3.x = lerp(pos3.x, pos2.x, .05);
+  pos3.y = lerp(pos3.y, pos2.y, .05);
+  pos4.x = lerp(pos4.x, pos3.x, .05);
+  pos4.y = lerp(pos4.y, pos3.y, .05);
+  pos5.x = lerp(pos5.x, pos4.x, .05);
+  pos5.y = lerp(pos5.y, pos4.y, .05);
+  pos6.x = lerp(pos6.x, pos5.x, .05);
+  pos6.y = lerp(pos6.y, pos5.y, .05);
 
   // Update element positions
   circle1.style.transform = `translate(${pos1.x}px, ${pos1.y}px)`;
@@ -390,7 +397,13 @@ document.addEventListener("click", function (event) {
     document.getElementById("displ").style.display = "flex";
   } else if (event.target && event.target.id === "closeSignin") {
     document.getElementById("displ").style.display = "none";
-  } else if (event.target && event.target.id === "openSignup") {
+  }else if (event.target && event.target.id === "page_flip_button_next") {
+    goToNext();
+  }else if (event.target && event.target.id === "page_flip_button_prev") {
+ 
+  goToPrevious();
+  }  
+   else if (event.target && event.target.id === "openSignup") {
     loadPage("signup.html");
     document.getElementById("displ").style.display = "flex";
   } else if (event.target && event.target.id === "closeSignup") {
