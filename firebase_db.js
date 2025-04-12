@@ -174,10 +174,10 @@ export function AddInfo(
     info: fname_input + "," + lname_input + "," + email_input,
   })
     .then(() => {
-      alert("Info added successfully!");
+    //  alert("Info added successfully!");
     })
     .catch((error) => {
-      alert("Unsuccessful!");
+    //  alert("Unsuccessful!");
       console.log(error);
     });
 }

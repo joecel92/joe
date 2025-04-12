@@ -14,7 +14,7 @@ import {
 import { MESSAGES_KEY, INFO_KEY } from "./firebase_config.js";
 import { addItem, set_header_txt, load_messages } from "./chat.js";
 import { goToNext, goToPrevious } from "./pageflip.js";
-import { load_info, set_info_variables } from "./infobox.js";
+import { load_info, set_info_variables,close_info_box_layout } from "./infobox.js";
 const admin_uid = "7Z8pzwRY4bOfWbtDt88PFOZ7hDD3";
 export let account_uid = "";
 export let selected_uid = "";
@@ -285,6 +285,7 @@ function SignInAccount() {
             //
           }
         } else {
+          close_info_box_layout();
          // alert(RESULTS);
           account_uid = RESULTS;
           loadPage("chat.html");
@@ -383,8 +384,7 @@ document.addEventListener("click", function (event) {
     side_bar_control();
     document.getElementById("displ").style.display = "flex";
   } else if (event.target && event.target.id === "close_info_box_btn") {
-    document.getElementById("info_disp").style.display = "none";
-    document.getElementById("info_disp").innerHTML = "";
+  close_info_box_layout();
   } else if (event.target && event.target.id === "closeSignin") {
     document.getElementById("displ").style.display = "none";
   } else if (event.target && event.target.id === "page_flip_button_next") {
@@ -398,6 +398,10 @@ document.addEventListener("click", function (event) {
     document.getElementById("displ").style.display = "none";
     document.getElementById("displ").innerHTML = "";
   } else if (event.target && event.target.id === "signinbtn") {
+    //document.getElementById("signinbtn").disabled=true;
+    set_info_variables("Signin in", "Please wait.",'#63000d');
+    document.getElementById("info_disp").style.display = "flex";
+    loadPage("infobox.html")
     SignInAccount();
   } else if (event.target && event.target.id === "toggleBtn") {
     side_bar_control();
@@ -417,10 +421,17 @@ document.addEventListener("click", function (event) {
         signup_password2
       ) === true
     ) {
+      set_info_variables("Registering","Please wait...","#640206");
+      document.getElementById("info_disp").style.display = "flex";
+      loadPage("infobox.html");
       signUpAndLoad(signup_email, signup_password2)
         .then((USER_ID) => {
           if (USER_ID) {
             //  account_uid = USER_ID;
+            close_info_box_layout();
+            set_info_variables("Congratulations","You can now signin.","#640206");
+            document.getElementById("info_disp").style.display = "flex";
+            loadPage("infobox.html");
             AddInfo(INFO_KEY, myfname, mylname, signup_email, USER_ID);
             loadPage("signin.html");
           } else {

@@ -12,3 +12,7 @@ export function load_info(){
     document.getElementById("infocontent").innerText=infocontent;
     document.getElementById("infobox").style.backgroundColor=bg;
 }
+export function close_info_box_layout(){
+    document.getElementById("info_disp").style.display = "none";
+      document.getElementById("info_disp").innerHTML = "";
+  }
