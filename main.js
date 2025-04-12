@@ -12,17 +12,13 @@ import {
   signup_firebase,
 } from "./firebase_auth.js";
 import { MESSAGES_KEY, INFO_KEY } from "./firebase_config.js";
-import { addItem, set_header_txt } from "./chat.js";
-import { goToNext,goToPrevious } from "./pageflip.js";
-
-
-const admin_uid="7Z8pzwRY4bOfWbtDt88PFOZ7hDD3";
+import { addItem, set_header_txt, load_messages } from "./chat.js";
+import { goToNext, goToPrevious } from "./pageflip.js";
+import { load_info, set_info_variables } from "./infobox.js";
+const admin_uid = "7Z8pzwRY4bOfWbtDt88PFOZ7hDD3";
 export let account_uid = "";
 export let selected_uid = "";
 let myfirstname = "";
-
-let currentPage = 0;
-
 
 export function reload_messages() {
   //reload_my_msgbox(MESSAGES_KEY, account_uid);
@@ -63,29 +59,6 @@ document.addEventListener("DOMContentLoaded", function () {
   load_messages([]);
 });
 
-function load_messages(msgobj) {
-  const container = document.getElementById("messagesContainer");
-
-  if (!container) {
-    console.error("Error: #messagesContainer element not found");
-    return;
-  }
-
-  container.innerHTML = ""; // Clear previous messages
-
-  if (msgobj && msgobj.length > 0) {
-    msgobj.forEach((msg) => {
-      const messageDiv = document.createElement("div");
-      messageDiv.innerHTML = `
-              <p>${msg.text} <button onclick="DeleteMessage('${msg.id}')">🗑️</button></p>
-          `;
-      container.appendChild(messageDiv);
-    });
-  } else {
-    container.innerHTML = "<p>No messages available.</p>";
-  }
-}
-
 /*
 function load_messages(msgobj) {
   const container = document.getElementById("messagesContainer");
@@ -112,14 +85,20 @@ function loadPage(page) {
   fetch(page)
     .then((response) => response.text())
     .then((data) => {
-      document.getElementById("displ").innerHTML = data;
+      if (page === "infobox.html") {
+        document.getElementById("info_disp").innerHTML = data;
+        load_info();
+      } else {
+        document.getElementById("displ").innerHTML = data;
+      }
+
       if (page === "chat.html") {
-        if(account_uid===admin_uid){
-          DownLoadContacts();//load drop down items
+        if (account_uid === admin_uid) {
+          DownLoadContacts(); //load drop down items
         }
-        
+
         reload_messages(); // load messages
-        get_my_info(INFO_KEY, account_uid);//get user name and display it 
+        get_my_info(INFO_KEY, account_uid); //get user name and display it
         document
           .getElementById("emailDropdown")
           .addEventListener("change", function () {
@@ -227,13 +206,7 @@ async function signUpAndLoad(input_email, input_password) {
 
 async function signInAndLoad(input_email, input_password) {
   const success = await signin_firebase(input_email, input_password); // Wait for the function to resolve
-  if (success != null) {
-    // If it resolves to true
-    //  alert("sign_in test");
-    return success;
-  } else {
-    return null;
-  }
+  return success;
 }
 
 function check_credential_signup(
@@ -299,9 +272,21 @@ function SignInAccount() {
 
   if (check_credential_signin(signin_email, signin_password)) {
     signInAndLoad(signin_email, signin_password)
-      .then((USER_ID) => {
-        if (USER_ID) {
-          account_uid = USER_ID;
+      .then((RESULTS) => {
+        if (RESULTS.toLowerCase().includes("error")) {
+          let parts = RESULTS.split(",");
+          if (parts.length > 1) {
+            // alert(parts[1]);
+           
+            set_info_variables("Error signin", parts[1],"#640206");
+            document.getElementById("info_disp").style.display = "flex";
+            loadPage("infobox.html");
+
+            //
+          }
+        } else {
+         // alert(RESULTS);
+          account_uid = RESULTS;
           loadPage("chat.html");
           // DownLoadInfoData();
           //get_my_info(INFO_KEY, account_uid);
@@ -309,21 +294,23 @@ function SignInAccount() {
           // get_name(INFO_KEY, account_uid);
           // alert(myname);
           //alert("Welcome");
+        }
+        /*
+        if (RESULTS) {
+         
 
           // ReadMessage(MESSAGES_KEY, account_uid);
+        } else {
+          loadPage("infobox.html");
+          document.getElementById("info_disp").style.display = "flex";
         }
+        */
       })
       .catch((error) => {
         console.error("Sign-in error:", error);
       });
   }
 }
-
-document.addEventListener("mousemove", function (e) {
-  const torch = document.querySelector(".torch");
-  torch.style.left = `${e.clientX}px`;
-  torch.style.top = `${e.clientY}px`;
-});
 
 const circle1 = document.getElementById("circle1");
 const circle2 = document.getElementById("circle2");
@@ -343,8 +330,8 @@ let pos6 = { x: mouse.x, y: mouse.y };
 
 // Listen to mouse movement
 document.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX + 50;//move circles 10px to x
-  mouse.y = e.clientY + 50;//move cicles 10px to y
+  mouse.x = e.clientX + 50; //move circles 10px to x
+  mouse.y = e.clientY + 50; //move cicles 10px to y
 });
 
 function lerp(start, end, factor) {
@@ -353,18 +340,18 @@ function lerp(start, end, factor) {
 
 function animate() {
   // Smoothly interpolate positions
-  pos1.x = lerp(pos1.x, mouse.x, .05);
-  pos1.y = lerp(pos1.y, mouse.y, .05);
-  pos2.x = lerp(pos2.x, pos1.x, .05);
-  pos2.y = lerp(pos2.y, pos1.y, .05);
-  pos3.x = lerp(pos3.x, pos2.x, .05);
-  pos3.y = lerp(pos3.y, pos2.y, .05);
-  pos4.x = lerp(pos4.x, pos3.x, .05);
-  pos4.y = lerp(pos4.y, pos3.y, .05);
-  pos5.x = lerp(pos5.x, pos4.x, .05);
-  pos5.y = lerp(pos5.y, pos4.y, .05);
-  pos6.x = lerp(pos6.x, pos5.x, .05);
-  pos6.y = lerp(pos6.y, pos5.y, .05);
+  pos1.x = lerp(pos1.x, mouse.x, 0.05);
+  pos1.y = lerp(pos1.y, mouse.y, 0.05);
+  pos2.x = lerp(pos2.x, pos1.x, 0.05);
+  pos2.y = lerp(pos2.y, pos1.y, 0.05);
+  pos3.x = lerp(pos3.x, pos2.x, 0.05);
+  pos3.y = lerp(pos3.y, pos2.y, 0.05);
+  pos4.x = lerp(pos4.x, pos3.x, 0.05);
+  pos4.y = lerp(pos4.y, pos3.y, 0.05);
+  pos5.x = lerp(pos5.x, pos4.x, 0.05);
+  pos5.y = lerp(pos5.y, pos4.y, 0.05);
+  pos6.x = lerp(pos6.x, pos5.x, 0.05);
+  pos6.y = lerp(pos6.y, pos5.y, 0.05);
 
   // Update element positions
   circle1.style.transform = `translate(${pos1.x}px, ${pos1.y}px)`;
@@ -395,15 +382,16 @@ document.addEventListener("click", function (event) {
     loadPage("signin.html");
     side_bar_control();
     document.getElementById("displ").style.display = "flex";
+  } else if (event.target && event.target.id === "close_info_box_btn") {
+    document.getElementById("info_disp").style.display = "none";
+    document.getElementById("info_disp").innerHTML = "";
   } else if (event.target && event.target.id === "closeSignin") {
     document.getElementById("displ").style.display = "none";
-  }else if (event.target && event.target.id === "page_flip_button_next") {
+  } else if (event.target && event.target.id === "page_flip_button_next") {
     goToNext();
-  }else if (event.target && event.target.id === "page_flip_button_prev") {
- 
-  goToPrevious();
-  }  
-   else if (event.target && event.target.id === "openSignup") {
+  } else if (event.target && event.target.id === "page_flip_button_prev") {
+    goToPrevious();
+  } else if (event.target && event.target.id === "openSignup") {
     loadPage("signup.html");
     document.getElementById("displ").style.display = "flex";
   } else if (event.target && event.target.id === "closeSignup") {
@@ -436,7 +424,9 @@ document.addEventListener("click", function (event) {
             AddInfo(INFO_KEY, myfname, mylname, signup_email, USER_ID);
             loadPage("signin.html");
           } else {
-            alert("Sign-in failed. Incorrect password or email");
+             set_info_variables("Signup failed", "Please try again later.",'#63000d');
+            document.getElementById("info_disp").style.display = "flex";
+            loadPage("infobox.html");
           }
         })
         .catch((error) => {
@@ -453,8 +443,14 @@ document.addEventListener("click", function (event) {
     SignOut_FireBase()
       .then((RESULTS) => {
         if (RESULTS != null) {
-          alert(RESULTS + " " + myfirstname + " Come again!");
+          // alert(RESULTS + " " + myfirstname + " Come again!");
+
           document.getElementById("displ").style.display = "none";
+          document.getElementById("displ").innerHTML = "";
+          document.getElementById("info_disp").innerHTML = "";
+          set_info_variables("Bye, "+myfirstname, "Come again thank you!",' #b1054c');
+          document.getElementById("info_disp").style.display = "flex";
+          loadPage("infobox.html");
         } else {
           alert("failed signout");
         }

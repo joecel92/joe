@@ -305,7 +305,41 @@ margin: 0;
   /*  background: rgba(0, 0, 0, 0.164); /* Optional: semi-transparent background */
     z-index: 10008; /* Ensures it is above everything */
 }
-
+.info_disp{
+    position: fixed; /* Stays above everything */
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: #0000003b;
+  /*  background: rgba(0, 0, 0, 0.164); /* Optional: semi-transparent background */
+    z-index: 10011; /* Ensures it is above everything */
+}
+.infobox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 400px;
+    height: 400px;
+    background-color: #ff6b81;
+    border-radius: 50px;
+    border-bottom-left-radius: 0;
+/*
+    background-color: #b1054c;
+*/
+}
+.infobox button{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 20pt;
+}
+.infobox p{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16pt;
+    color: #f1eff0;
+}
 .signin_form {
     font-family: 'Courier New', Courier, monospace;
     color: rgb(255, 255, 255);
@@ -522,9 +556,8 @@ width: 100%;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-
     margin-bottom: 100px;
-    height: 500px;
+     height: 80vh;
 }
 
 
@@ -532,7 +565,7 @@ width: 100%;
     
     position: relative;
     width: 50%;
-    height: 800px;
+    height: 90%;
     perspective: 2000px;
 
   }
