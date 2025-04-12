@@ -10,7 +10,7 @@ export function load_info(){
       
     document.getElementById("infotitle").innerText=infotitle;
     document.getElementById("infocontent").innerText=infocontent;
-    document.getElementById("infobox").style.backgroundColor=bg;
+    document.getElementById("infobox").style.background=bg;
 }
 export function close_info_box_layout(){
     document.getElementById("info_disp").style.display = "none";

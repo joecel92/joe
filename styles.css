@@ -301,7 +301,7 @@ margin: 0;
     display: none;
     justify-content: center;
     align-items: center;
-    background: #00000085;
+    background: #0000002f;
   /*  background: rgba(0, 0, 0, 0.164); /* Optional: semi-transparent background */
     z-index: 10008; /* Ensures it is above everything */
 }
@@ -314,7 +314,7 @@ margin: 0;
     display: none;
     justify-content: center;
     align-items: center;
-    background: #0000003b;
+    background: #00000018;
   /*  background: rgba(0, 0, 0, 0.164); /* Optional: semi-transparent background */
     z-index: 10011; /* Ensures it is above everything */
 }
@@ -324,12 +324,15 @@ margin: 0;
     align-items: center;
     width: 400px;
     height: 400px;
-    background-color: #ff6b81;
+    background: linear-gradient(135deg, #520129, #ec4469);
     border-radius: 50px;
     border-bottom-left-radius: 0;
+    box-shadow: 10px 10px 5px rgba(17, 14, 13, 0.575);
 /*
+linear-gradient(135deg, #520129, #ec4469)
     background-color: #b1054c;
 */
+
 }
 .infobox button{
     font-family: 'Courier New', Courier, monospace;

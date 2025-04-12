@@ -257,11 +257,16 @@ function check_credential_signup(
 function check_credential_signin(input_email, input_password) {
   let emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
   if (!emailPattern.test(input_email)) {
-    alert("Email incorrect!");
+    set_info_variables("Incorrect email format", "Check your email input","linear-gradient(135deg,rgb(3, 1, 2),rgb(236, 53, 114))");
+    document.getElementById("info_disp").style.display = "flex";
+    loadPage("infobox.html");
     return false;
   }
   if (input_password.length < 6) {
-    alert("Password atleast 6 characters!");
+    set_info_variables("Incorrect password input", "Password must be atleast 6 characters","linear-gradient(135deg,rgb(3, 1, 2),rgb(236, 53, 114))");
+    document.getElementById("info_disp").style.display = "flex";
+    loadPage("infobox.html");
+    return false;
   }
   return true;
 }
@@ -278,7 +283,7 @@ function SignInAccount() {
           if (parts.length > 1) {
             // alert(parts[1]);
            
-            set_info_variables("Error signin", parts[1],"#640206");
+            set_info_variables("Error signin", parts[1],"linear-gradient(135deg,rgb(3, 1, 2),rgb(236, 53, 114))");
             document.getElementById("info_disp").style.display = "flex";
             loadPage("infobox.html");
 
@@ -399,7 +404,7 @@ document.addEventListener("click", function (event) {
     document.getElementById("displ").innerHTML = "";
   } else if (event.target && event.target.id === "signinbtn") {
     //document.getElementById("signinbtn").disabled=true;
-    set_info_variables("Signin in", "Please wait.",'#63000d');
+    set_info_variables("Signin in", "Please wait.","linear-gradient(135deg,rgb(63, 11, 37),rgb(236, 53, 114))");
     document.getElementById("info_disp").style.display = "flex";
     loadPage("infobox.html")
     SignInAccount();
@@ -421,7 +426,7 @@ document.addEventListener("click", function (event) {
         signup_password2
       ) === true
     ) {
-      set_info_variables("Registering","Please wait...","#640206");
+      set_info_variables("Registering","Please wait...","linear-gradient(135deg,rgb(3, 1, 2),rgb(236, 53, 114))");
       document.getElementById("info_disp").style.display = "flex";
       loadPage("infobox.html");
       signUpAndLoad(signup_email, signup_password2)
@@ -429,13 +434,13 @@ document.addEventListener("click", function (event) {
           if (USER_ID) {
             //  account_uid = USER_ID;
             close_info_box_layout();
-            set_info_variables("Congratulations","You can now signin.","#640206");
+            set_info_variables("Congratulations","You can now signin.","linear-gradient(135deg,rgb(3, 1, 2),rgb(236, 53, 114))");
             document.getElementById("info_disp").style.display = "flex";
             loadPage("infobox.html");
             AddInfo(INFO_KEY, myfname, mylname, signup_email, USER_ID);
             loadPage("signin.html");
           } else {
-             set_info_variables("Signup failed", "Please try again later.",'#63000d');
+             set_info_variables("Signup failed", "Please try again later.","linear-gradient(135deg,rgb(3, 1, 2),rgb(236, 53, 114))");
             document.getElementById("info_disp").style.display = "flex";
             loadPage("infobox.html");
           }
@@ -459,7 +464,7 @@ document.addEventListener("click", function (event) {
           document.getElementById("displ").style.display = "none";
           document.getElementById("displ").innerHTML = "";
           document.getElementById("info_disp").innerHTML = "";
-          set_info_variables("Bye, "+myfirstname, "Come again thank you!",' #b1054c');
+          set_info_variables("Bye, "+myfirstname, "Come again thank you!","linear-gradient(135deg,rgb(3, 1, 2),rgb(236, 53, 114))");
           document.getElementById("info_disp").style.display = "flex";
           loadPage("infobox.html");
         } else {
