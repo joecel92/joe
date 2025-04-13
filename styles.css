@@ -163,10 +163,11 @@ take note  below side bar
     flex-direction: column;
     align-items: center;
     padding-left: 20px;
-    background-color: #0a0909f6;
+    background: linear-gradient(135deg, #3a031f, #ec4469);
  
  
 }
+
 #toggleBtn{
     background: transparent;
     margin-left: 5px;
@@ -190,7 +191,7 @@ take note  below side bar
 .header-text p{
 font-family: 'Courier New', Courier, monospace;
 padding: 0;
-color: #f0148d;
+color: #f3edf0;
 margin: 0;
 }
 
@@ -209,12 +210,12 @@ margin: 0;
     color: #eeeaea;
     font-family: 'Courier New', Courier, monospace;
     font-style: italic;
-    font-size: 12pt;
+    font-size: 16pt;
     margin-bottom: 1%;
     padding: 5px;
     border-radius: 40px;
     border-bottom-left-radius: 0;
-    background-color: #830343;
+    background-color: #c71258;
     border: none;
     height: fit-content;
     animation: glow-image 1s ease-in-out infinite alternate;
@@ -498,12 +499,23 @@ width: 100%;
 
     font-size: 18pt;
 }
+
+#directmsg_btn{
+ position: absolute;
+ left: 50px;
+ border-radius: 20px;
+ border-bottom-left-radius: 0;
+ font-size: 12pt;
+ border: none;
+ font-family: 'Courier New', Courier, monospace;
+ z-index: 10012;
+}
 .movable-div1 {
     width: auto;
     height: 20%;
     position: absolute;
    bottom: 50px;
-    right:5px;
+    left:50px;
     cursor: grab;
     display: flex;
     border-radius: 10px;
@@ -650,7 +662,7 @@ width: 100%;
         align-items: center;
     }
     .movable-div1{
-       visibility: hidden;
+       transform: scale(.6);
     }
     #book{
         width: 86%;
