@@ -18,17 +18,11 @@ body {
     width: 100vw;
     height: 100vh;
     /*background: linear-gradient(135deg, #830343, #ff6b81);*/
-    background: linear-gradient(to bottom right, #000000,#ec167a);
+    background: linear-gradient(to bottom right, #0a4bda,#ec167a);
 
 }
 
-.project-title p{
-    font-family: 'Courier New', Courier, monospace;
-    padding: 0;
-    margin: 0;
-    color: #fcfafa;
-    font-size: 24pt;
-}
+
 
 .project-title{
 width: 100%;
@@ -38,6 +32,11 @@ justify-content: center;
 padding: 0;
 margin: 0;
 font-weight: bold;
+cursor: pointer;
+}
+#showproj_btn{
+    font-size: 20pt;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .main-content {
@@ -513,6 +512,7 @@ width: 100%;
  z-index: 10012;
 }
 .movable-div1 {
+    visibility: hidden;
     width: auto;
     height: 20%;
     position: absolute;
@@ -532,8 +532,8 @@ width: 100%;
     pointer-events: none;
 }
 .circle {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     border-radius: 50%;
     position: absolute;
     pointer-events: none;
@@ -568,27 +568,52 @@ width: 100%;
     background: #07e6194d;
   }
   
-  .project_page{
+
+.bg_wall p{
+    font-size: 20pt;
+    color: #eeeaea;
+}
+
+.bg_wall{
+    padding: 20px;
+    left: 20%;
+    top: 20%;
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    background: linear-gradient(135deg, #830343, #ff6b81);
+    z-index: 5;
+    transform: skewX(-45deg) rotateZ(10deg);
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.329); /* Drop shadow */
+}
+.project_page{
+    top: 100%;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     margin-bottom: 100px;
-     height: 80vh;
+    height: 80vh;
+    width: 100%;
+    background-color: #076cf160;
+    transition: 0.3s ease-in-out;
 }
+  .book {
 
-
-  #book {
-    
     position: relative;
-    width: 50%;
-    height: 90%;
+    width: 60%;
+    height: 80%;
     perspective: 2000px;
+    transition: 0.3s ease-in-out;
 
   }
-  
+  .book_open {
+    top: 0;
+  }
   /* Each page */
   .page {
+ 
     width: 100%;
     height: 100%;
     background: rgb(211, 180, 180);
@@ -601,13 +626,19 @@ width: 100%;
     backface-visibility: hidden;
     box-sizing: border-box;
   }
+
   .page p{
     font-family: 'Courier New', Courier, monospace;
     font-size: 20pt;
   }
+  .page img{
+    width: 300px;
+    height: auto;
+  }
   #proj_title{
     font-weight: bold;
     font-size: 24pt;
+
   }
   /* Add inner shadow effect while flipping */
   .page::before {
@@ -627,12 +658,12 @@ width: 100%;
   }
   
   /* Layering pages correctly */
-  .page:nth-child(1) { z-index: 6; }
-  .page:nth-child(2) { z-index: 5; }
-  .page:nth-child(3) { z-index: 4; }
-  .page:nth-child(4) { z-index: 3; }
-  .page:nth-child(5) { z-index: 2; }
-  .page:nth-child(6) { z-index: 1; }
+  .page:nth-child(1) { z-index: 60; }
+  .page:nth-child(2) { z-index: 50; }
+  .page:nth-child(3) { z-index: 40; }
+  .page:nth-child(4) { z-index: 30; }
+  .page:nth-child(5) { z-index: 20; }
+  .page:nth-child(6) { z-index: 10; }
   
   /* Page flipping */
   .page.flipped {
@@ -682,5 +713,14 @@ width: 100%;
     }
     .message_form{
         width: 90%;
+    }
+    .bg_wall{
+        left: 5%;
+        top: 30%;
+        transform: skewX(-2deg) rotateZ(10deg);
+        width: 80%;
+    }
+    .bg_wall p{
+        font-size: 20pt;
     }
 }

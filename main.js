@@ -54,11 +54,11 @@ window.DeleteMessage = async (messageId) => {
 
   //loadMessages(); // Refresh messages after deletion
 };
-
+/*
 document.addEventListener("DOMContentLoaded", function () {
   load_messages([]);
 });
-
+*/
 /*
 function load_messages(msgobj) {
   const container = document.getElementById("messagesContainer");
@@ -382,6 +382,18 @@ function side_bar_control() {
   }
 }
 
+function show_projects() {
+
+//  const project_title = document.getElementById("show_proj");
+  const page_open=document.getElementById("project_page");
+  if (page_open.classList.contains("book_open")) {
+    page_open.classList.remove("book_open");
+  } else {
+    page_open.classList.add("book_open");
+  }
+}
+
+
 document.addEventListener("click", function (event) {
   if (event.target && event.target.id === "openForm") {
     // alert("hello");
@@ -390,7 +402,9 @@ document.addEventListener("click", function (event) {
     document.getElementById("displ").style.display = "flex";
   } else if (event.target && event.target.id === "close_info_box_btn") {
   close_info_box_layout();
-  } else if (event.target && event.target.id === "closeSignin") {
+  } else if (event.target && event.target.id === "showproj_btn") {
+    show_projects();
+    }else if (event.target && event.target.id === "closeSignin") {
     document.getElementById("displ").style.display = "none";
   } else if (event.target && event.target.id === "page_flip_button_next") {
     goToNext();
@@ -559,3 +573,10 @@ async function search_uid_by_email(input_email) {
     return null;
   }
 }
+document.getElementById('toggleBtn').addEventListener('mouseover', () => {
+ side_bar_control();
+});
+
+document.getElementById('showproj_btn').addEventListener('mouseover', () => {
+  show_projects();
+ });
