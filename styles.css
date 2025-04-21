@@ -587,23 +587,23 @@ width: 100%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.329); /* Drop shadow */
 }
 .project_page{
+
+    padding: 0;
     top: 100%;
     position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin-bottom: 100px;
     height: 80vh;
     width: 100%;
-    background-color: #076cf160;
     transition: 0.3s ease-in-out;
+
 }
   .book {
 
     position: relative;
     width: 60%;
-    height: 80%;
+    height: 70%;
     perspective: 2000px;
     transition: 0.3s ease-in-out;
 
@@ -625,6 +625,7 @@ width: 100%;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.329); /* Drop shadow */
     backface-visibility: hidden;
     box-sizing: border-box;
+    margin: 0;
   }
 
   .page p{
@@ -673,9 +674,9 @@ width: 100%;
   /* Navigation buttons */
   .nav-buttons {
     display: flex;
-    width: 50%;
+    width: 60%;
     position: relative;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 0;
     text-align: center;
 
@@ -721,6 +722,18 @@ width: 100%;
         width: 80%;
     }
     .bg_wall p{
-        font-size: 20pt;
+        font-size: 14pt;
     }
+    .page img{
+        height: 200px;
+    }
+    .page p{
+        font-family: 'Courier New', Courier, monospace;
+        font-size: 12pt;
+      }
+   
+      #proj_title{
+        font-size: 16pt;
+    
+      }
 }
