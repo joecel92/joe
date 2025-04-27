@@ -387,9 +387,12 @@ function show_projects() {
 //  const project_title = document.getElementById("show_proj");
   const page_open=document.getElementById("project_page");
   if (page_open.classList.contains("book_open")) {
+    document.getElementById('showproj_btn').innerHTML = "Projects &#8613;";
     page_open.classList.remove("book_open");
   } else {
+    
     page_open.classList.add("book_open");
+    document.getElementById('showproj_btn').innerHTML = "Projects &#8615;";
   }
 }
 
