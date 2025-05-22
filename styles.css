@@ -18,8 +18,13 @@ body {
     width: 100vw;
     height: 100vh;
     /*background: linear-gradient(135deg, #830343, #ff6b81);*/
-    background: linear-gradient(to bottom right, #0a4bda,#ec167a);
+  /*  background: linear-gradient(to bottom right, #0a4bda,#ec167a);*/
 
+}
+.bg_wallpaper img{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
 }
 
 
@@ -532,15 +537,15 @@ width: 100%;
     pointer-events: none;
 }
 .circle {
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
     border-radius: 50%;
     position: absolute;
     pointer-events: none;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 11000;
+    z-index: 10;
     font-size: 20pt;
     color: #eeeaea;
   }
@@ -572,20 +577,24 @@ width: 100%;
 .bg_wall p{
     font-size: 20pt;
     color: #eeeaea;
+    font-family:'Courier New', Courier, monospace;
 }
 
 .bg_wall{
+
     padding: 20px;
     left: 20%;
     top: 20%;
     position: fixed;
     width: 50%;
-    height: 50%;
-    background: linear-gradient(135deg, #830343, #ff6b81);
+    height: fit-content;
+    background: linear-gradient(135deg, #83034333, #ff6b8121);
     z-index: 5;
-    transform: skewX(-45deg) rotateZ(10deg);
+    transform: skewX(0deg) rotateZ(0deg);
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.329); /* Drop shadow */
+
 }
+
 .project_page{
 
     padding: 0;
@@ -715,15 +724,8 @@ width: 100%;
     .message_form{
         width: 90%;
     }
-    .bg_wall{
-        left: 5%;
-        top: 30%;
-        transform: skewX(-2deg) rotateZ(10deg);
-        width: 80%;
-    }
-    .bg_wall p{
-        font-size: 14pt;
-    }
+
+
     .page img{
         height: 200px;
     }
