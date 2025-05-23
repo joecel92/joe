@@ -578,20 +578,23 @@ width: 100%;
     font-size: 20pt;
     color: #eeeaea;
     font-family:'Courier New', Courier, monospace;
+    width: 50%;
+    height: fit-content;
+    margin-top: 10%;
+    margin-left: 20%;
+    padding: 10px;
+    background: linear-gradient(135deg, #83034333, #e907525b);
 }
 
 .bg_wall{
-
-    padding: 20px;
-    left: 20%;
-    top: 20%;
     position: fixed;
-    width: 50%;
-    height: fit-content;
-    background: linear-gradient(135deg, #83034333, #ff6b8121);
+    align-items: center;
+    width: 100vw;
+    height: 100vh;
+
     z-index: 5;
     transform: skewX(0deg) rotateZ(0deg);
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.329); /* Drop shadow */
+   /* box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.329);  Drop shadow */
 
 }
 
@@ -737,5 +740,11 @@ width: 100%;
       #proj_title{
         font-size: 16pt;
     
+      }
+      .bg_wall p{
+           width: 90%;
+           margin-left: 5%;
+           margin-top: 40%;
+ 
       }
 }
