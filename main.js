@@ -336,8 +336,8 @@ let pos6 = { x: mouse.x, y: mouse.y };
 
 // Listen to mouse movement
 document.addEventListener("mousemove", (e) => {
-  mouse.x = e.clientX + 50; //move circles 10px to x
-  mouse.y = e.clientY + 50; //move cicles 10px to y
+  mouse.x = e.clientX + 10; //move circles 10px to x
+  mouse.y = e.clientY + 10; //move cicles 10px to y
 });
 
 function lerp(start, end, factor) {
@@ -554,7 +554,7 @@ async function get_my_info(input_info_key, input_uid) {
     if (arr.length === 3) {
       myfirstname = arr[0];
       //  alert("Welcome " + arr[0] + " " + arr[1]);
-      set_header_txt("Welcome " + arr[0] + " " + arr[1]);
+      set_header_txt("Welcome " + arr[0] + " " + arr[1] + ", please enter a  message below.") ;
     }
   }
 }

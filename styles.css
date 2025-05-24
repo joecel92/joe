@@ -308,7 +308,7 @@ margin: 0;
     display: none;
     justify-content: center;
     align-items: center;
-    background: #0000002f;
+    background: #000000b2;
   /*  background: rgba(0, 0, 0, 0.164); /* Optional: semi-transparent background */
     z-index: 10008; /* Ensures it is above everything */
 }
@@ -321,7 +321,7 @@ margin: 0;
     display: none;
     justify-content: center;
     align-items: center;
-    background: #00000018;
+    background: #00000062;
   /*  background: rgba(0, 0, 0, 0.164); /* Optional: semi-transparent background */
     z-index: 10011; /* Ensures it is above everything */
 }
@@ -744,7 +744,12 @@ width: 100%;
       .bg_wall p{
            width: 90%;
            margin-left: 5%;
-           margin-top: 40%;
+           margin-top: 55%;
+           font-size: 16pt;
+
  
+      }
+      .about-me{
+        padding-top: 20px;
       }
 }
