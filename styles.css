@@ -177,7 +177,8 @@ take note  below side bar
 #toggleBtn{
     background: transparent;
     margin-left: 5px;
-    font-size: 32pt;
+    font-size: 48px;
+    color: #eff2f5;
     border: transparent;
     position: relative;
 }
@@ -643,10 +644,13 @@ width: 100%;
   .page p{
     font-family: 'Courier New', Courier, monospace;
     font-size: 20pt;
+    padding: 0;
+    margin: 0;
   }
   .page img{
     width: 300px;
-    height: auto;
+    height: 200px;
+    margin: 0;
   }
   #proj_title{
     font-weight: bold;
@@ -724,13 +728,16 @@ width: 100%;
     #about-me-title{
         font-size: 20pt;
     }
+     #about-me-content{
+        font-size: 10pt;
+    }
     .message_form{
         width: 90%;
     }
 
 
     .page img{
-        height: 200px;
+         transform: scale(.6);
     }
     .page p{
         font-family: 'Courier New', Courier, monospace;
@@ -745,11 +752,19 @@ width: 100%;
            width: 90%;
            margin-left: 5%;
            margin-top: 55%;
-           font-size: 16pt;
+           font-size: 12pt;
 
  
       }
       .about-me{
         padding-top: 20px;
       }
+      #showproj_btn{
+         font-size: 12pt;
+      }
+      .sidebar p{
+        font-size: 12pt;
+      }
+    
+
 }
